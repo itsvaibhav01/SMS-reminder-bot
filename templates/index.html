@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Reminder Bot</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .card {
+            border-radius: 20px;
+        }
+        .bot-msg {
+            background-color: #0b93f6;
+            color: white;
+        }
+        .user-msg {
+            background-color: #e5e5ea;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Welcome to SMS Reminder Bot!</h1>
+        <p class="lead">Never forget important tasks again. Just chat with our bot and ask it to remind you. It will send you SMS reminders!</p>
+        <hr class="my-4">
+        <p>Click the button below to get started.</p>
+        <p class="lead">
+            <button class="btn btn-primary btn-lg" id="chat-now-btn" role="button">Chat Now</button>
+        </p>
+        <div id="iphone-container" style="display: none;">
+            <img src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/iOS/ios15-iphone12-pro-messages-green-text-message.png" alt="iPhone Image" style="width: 300px; height: auto;" />
+            <p>Your number: xxxxxxxxxxxx</p>
+        </div>
+
+        <!-- Add conversation here -->
+        <div class="my-4">
+            <div class="row">
+                <div class="col px-2">
+                    <div class="card user-msg my-2">
+                        <div class="card-body">
+                            Hey 👋
+                        </div>
+                    </div>
+                    <div class="card bot-msg my-2">
+                        <div class="card-body">
+                            Bot: Hello! What is your name?
+                        </div>
+                    </div>
+                </div>
+                <div class="col px-2">
+                    <div class="card user-msg my-2">
+                        <div class="card-body">
+                            Adam
+                        </div>
+                    </div>
+                    <div class="card bot-msg my-2">
+                        <div class="card-body">
+                            Bot: Hello Adam, You can set reminders now!
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="col px-2">
+                    <div class="card user-msg my-2">
+                        <div class="card-body">
+                            Remind me to order food in 15 min. 
+                        </div>
+                    </div>
+                    <div class="card bot-msg my-2">
+                        <div class="card-body">
+                            Bot: Your reminder is set for order food in 14 min, 59 sec.
+                        </div>
+                    </div>
+                    15 min later
+                    <div class="card bot-msg my-2">
+                        <div class="card-body">
+                            Bot: Hey Adam, this is your reminder for order food.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col px-2">
+                    <div class="card user-msg my-2">
+                        <div class="card-body">
+                            I need to take the trash out every Monday morning. Can you remind me?
+                        </div>
+                    </div>
+                    <div class="card bot-msg my-2">
+                        <div class="card-body">
+                            Bot: Please also mention the time when you want me to remind you.
+                        </div>
+                    </div>
+                    <div class="card user-msg my-2">
+                        <div class="card-body">
+                            at 12 pm
+                        </div>
+                    </div>
+                    <div class="card bot-msg my-2">
+                        <div class="card-body">
+                            Bot: Your reminder is set for take trash out in 120 min, 30 sec.
+                        </div>
+                    </div>
+                    at 12 pm every Monday
+                    <div class="card bot-msg my-2">
+                        <div class="card-body">
+                            Bot: Hey Adam, this is your reminder for take trash out.
+                        </div>
+                    </div>
+                </div>  
+                <div class="col px-2">
+                    <div class="card user-msg my-2">
+                        <div class="card-body">
+                            /reminders
+                        </div>
+                    </div>
+                    <div class="card bot-msg my-2">
+                        <div class="card-body">
+                            Bot: 1. taking vitamins <br>
+                                 2. order food <br>
+                                 to delete any reminder send /delete followed by number of reminders
+                        </div>
+                    </div>
+                    <div class="card user-msg my-2">
+                        <div class="card-body">
+                            /delete 2 
+                        </div>
+                    </div>
+                    <div class="card bot-msg my-2">
+                        <div class="card-body">
+                            Bot: Deleted task 2
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $('#chat-now-btn').click(function() {
+                $('#iphone-container').show();
+            });
+        });
+    </script>
+</body>
+</html>
